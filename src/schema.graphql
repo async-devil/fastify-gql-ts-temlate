@@ -1,0 +1,28 @@
+# https://github.com/mercurius-js/validation/blob/main/docs/directive-validation.md
+
+type Query {
+  getSandwich(id: ID! @constraint(type: "string", minLength: 1)): Sandwich
+  getSandwiches: [Sandwich]
+}
+
+type Sandwich {
+  id: ID!
+  name: String!
+  ingredients: [String]!
+}
+
+type Mutation {
+  createSandwich(dto: CreateSandwichDto!): Sandwich
+  updateSandwich(id: ID! @constraint(type: "string", minLength: 1), dto: UpdateSandwichDto!): Sandwich
+  deleteSandwich(id: ID! @constraint(type: "string", minLength: 1)): Boolean
+}
+
+input CreateSandwichDto {
+  name: String! @constraint(minLength: 1)
+  ingredients: [String]!
+}
+
+input UpdateSandwichDto {
+  name: String @constraint(minLength: 1)
+  ingredients: [String]
+}

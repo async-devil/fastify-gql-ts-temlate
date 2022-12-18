@@ -1,18 +1,8 @@
-import { join } from "path";
+import { RouteOptions } from "fastify";
 
-import autoLoad from "@fastify/autoload";
-import { TypeBoxTypeProvider } from "@fastify/type-provider-typebox";
-import fastify, { RouteOptions } from "fastify";
-
-const server = fastify().withTypeProvider<TypeBoxTypeProvider>();
+import { server } from "./server";
 
 const routes: RouteOptions[] = [];
-
-void server.register(autoLoad, {
-	dir: join(__dirname, "routes"),
-	dirNameRoutePrefix: false,
-	options: { prefix: "/api" },
-});
 
 server.addHook("onRoute", (route) => {
 	routes.push(route);
