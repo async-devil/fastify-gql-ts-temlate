@@ -1,5 +1,7 @@
 # Fastify graphql typescript template
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/79967339634e584feae3?action=collection%2Fimport)
+
 ## Run docker image
 
 Provides ready to go docker compose config
