@@ -1,8 +1,8 @@
 version: "3.2"
 services:
-  api:
-    image: fastify-api
-    container_name: fastify-api
+  backend:
+    image: fastify-gql-api
+    container_name: fastify-gql-api
 
     build:
       context: .
